@@ -10,7 +10,7 @@
         }
     </style>
 <head>
-    <title>TrackResponse</title>
+    <title>Victims</title>
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 </head>    
 <body topmargin="20%"> 
@@ -20,7 +20,7 @@
   border: 3px solid BLACK;
   padding: 10px;
   border-radius:30px">
-
+ <div style="font-size:30px;font-weight:700;"><center>VICTIMS</center></div>
 <?php
 $servername = "localhost";
 $username = "root";
